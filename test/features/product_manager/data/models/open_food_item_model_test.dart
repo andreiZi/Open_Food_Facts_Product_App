@@ -8,7 +8,7 @@ import '../../../../fixtures/fixture_reader.dart';
 
 main() {
   final tproductManagerModel = OpenFoodItemModel(
-      barCode: 9999999, status: 1, statusVerbose: 'product found');
+      barCode: 20035594, status: 1, statusVerbose: 'product found');
 
   test('should be a sublass of the ProducManager entitity', () async {
     //assert
@@ -47,7 +47,7 @@ main() {
       final expectedMap = {
         'status': 1,
         'status_verbose': "product found",
-        'code': 9999999
+        'code': 20035594
       };
       expect(result, expectedMap);
     });
