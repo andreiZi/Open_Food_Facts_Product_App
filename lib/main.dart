@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_api_test_app/presentation/pages/Homepage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +13,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
     );
   }
 }
