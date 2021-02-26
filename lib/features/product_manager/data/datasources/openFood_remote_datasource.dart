@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:food_api_test_app/core/error/exceptions.dart';
 import 'package:food_api_test_app/features/product_manager/data/models/open_food_item_model.dart';
@@ -22,11 +24,23 @@ class OpenFoodFactsRemoteDataSourceImpl extends OpenFoodFactsRemoteDataSource {
   OpenFoodFactsRemoteDataSourceImpl({@required this.client});
 
   @override
-  Future<OpenFoodItemModel> getOpenFoodItem(int barCode) {}
+  Future<OpenFoodItemModel> getOpenFoodItem(int barCode) =>
+      _getOpenFoodItemFromUrl(
+          'https://world.openfoodfacts.org/api/v0/product/$barCode');
 
   @override
-  Future<OpenFoodItemModel> setOpenFoodItem(OpenFoodItem openFoodItem) {
-    // TODO: implement setOpenFoodItem
-    throw UnimplementedError();
+  Future<OpenFoodItemModel> setOpenFoodItem(OpenFoodItem openFoodItem) =>
+      throw UnimplementedError();
+
+  Future<OpenFoodItemModel> _getOpenFoodItemFromUrl(String url) async {
+    final response =
+        await client.get(url, headers: {'Content-Type': 'application/json'});
+
+    if (response.statusCode == 200) {
+      print(response.body);
+      return OpenFoodItemModel.fromJson(json.decode(response.body));
+    } else {
+      throw ServerException();
+    }
   }
 }
