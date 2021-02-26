@@ -1,0 +1,31 @@
+import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:food_api_test_app/core/network/network_info.dart';
+import 'package:mockito/mockito.dart';
+
+class MockDataConnectionChecker extends Mock implements DataConnectionChecker {}
+
+void main() {
+  NetworkImpl networkInfo;
+  MockDataConnectionChecker mockDataConnectionChecker;
+
+  setUp(() {
+    mockDataConnectionChecker = MockDataConnectionChecker();
+    networkInfo = NetworkImpl(mockDataConnectionChecker);
+  });
+
+  group('isConnected', () {
+    test('should foward teh call to DataConnectionChecker.hasconnection',
+        () async {
+      //arrange
+      final tHasConnectionFuture = Future.value(true);
+      when(mockDataConnectionChecker.hasConnection)
+          .thenAnswer((_) => tHasConnectionFuture);
+      //act
+      final result = networkInfo.isConnected;
+      //assert
+      verify(mockDataConnectionChecker.hasConnection);
+      expect(result, tHasConnectionFuture);
+    });
+  });
+}
