@@ -21,7 +21,6 @@ class ProductManagerBloc
         getOpenFoodItem = openFoodItem;
 
   @override
-  // TODO: implement initialState
   ProductManagerState get initialState => Empty();
 
   @override

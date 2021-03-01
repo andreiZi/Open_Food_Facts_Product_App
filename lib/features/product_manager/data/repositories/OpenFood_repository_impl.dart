@@ -10,13 +10,10 @@ import 'package:food_api_test_app/features/product_manager/domain/repositories/O
 
 class OpenFoodFactsRepositoryImpl implements OpenFoodFactsRepository {
   final OpenFoodFactsRemoteDataSource remoteDataSource;
-  final OpenFoodFactsLocalDataSource localDataSource;
   final NetworkInfo networkinfo;
 
   OpenFoodFactsRepositoryImpl(
-      {@required this.remoteDataSource,
-      @required this.localDataSource,
-      @required this.networkinfo});
+      {@required this.remoteDataSource, @required this.networkinfo});
 
   @override
   Future<Either<Failure, OpenFoodItem>> getProduct(int barcodeNumber) {
