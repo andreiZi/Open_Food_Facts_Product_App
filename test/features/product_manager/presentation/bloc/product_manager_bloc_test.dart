@@ -76,5 +76,20 @@ void main() {
       //assert
       verify(mockGetOpenItem(Params(barCode: tBarcodeNumber)));
     });
+
+    test('should emit [Loading, Loaded] when the data is gotten succesfully',
+        () async {
+      //arrange
+      setUpMockInputConverterSuccess();
+      when(mockGetOpenItem(any)).thenAnswer((_) async => Right(tOpenFoodItem));
+      //assert later
+      final expected = [
+        Empty(),
+        Loading(),
+        Loaded(openFoodItem: tOpenFoodItem),
+      ];
+      expectLater(bloc, emitsInOrder(expected));
+      //act
+    });
   });
 }
