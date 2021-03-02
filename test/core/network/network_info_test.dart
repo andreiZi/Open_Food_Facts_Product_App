@@ -6,12 +6,12 @@ import 'package:mockito/mockito.dart';
 class MockDataConnectionChecker extends Mock implements DataConnectionChecker {}
 
 void main() {
-  NetworkImpl networkInfo;
+  NetworkInfoImpl networkInfo;
   MockDataConnectionChecker mockDataConnectionChecker;
 
   setUp(() {
     mockDataConnectionChecker = MockDataConnectionChecker();
-    networkInfo = NetworkImpl(mockDataConnectionChecker);
+    networkInfo = NetworkInfoImpl(mockDataConnectionChecker);
   });
 
   group('isConnected', () {
