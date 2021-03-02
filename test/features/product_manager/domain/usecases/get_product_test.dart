@@ -25,13 +25,13 @@ void main() {
       'should get an Open Food Item (Product) for the barCode from the repository',
       () async {
     //arrange
-    when(mockOpenFoodFactsRepository.getProduct(any))
+    when(mockOpenFoodFactsRepository.getOpenFoodItem(any))
         .thenAnswer((_) async => Right(topenFoodItem));
     //act
     final result = await usecase(Params(barCode: tbarCode));
     //assert
     expect(result, Right(topenFoodItem));
-    verify(mockOpenFoodFactsRepository.getProduct(tbarCode));
+    verify(mockOpenFoodFactsRepository.getOpenFoodItem(tbarCode));
     verifyNoMoreInteractions(mockOpenFoodFactsRepository);
   });
 }
