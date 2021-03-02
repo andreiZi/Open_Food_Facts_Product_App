@@ -63,6 +63,7 @@ void main() {
         Empty(),
         Error(message: INVALID_INPUT_FAILURE_MESSAGE),
       ];
+      expectLater(bloc, emitsInOrder(expected));
       //act
       bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
     });

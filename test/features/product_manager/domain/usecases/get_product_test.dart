@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:food_api_test_app/features/product_manager/domain/entities/open_food_item.dart';
 import 'package:food_api_test_app/features/product_manager/domain/repositories/OpenFood_repository.dart';

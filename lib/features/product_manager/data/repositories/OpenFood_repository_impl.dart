@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:food_api_test_app/core/network/network_info.dart';
 import 'package:food_api_test_app/features/product_manager/data/datasources/openFood_remote_datasource.dart';

@@ -19,8 +19,6 @@ main() {
 
   final topenFoodItem =
       OpenFoodItem(status: 1, statusVerbose: 'product found', barCode: 999999);
-  final tstatusOK = '200';
-  final tstatusNotFound = '404';
 
   test(
       'should set an Open Food Item (Product) for the barCode in the repository',
