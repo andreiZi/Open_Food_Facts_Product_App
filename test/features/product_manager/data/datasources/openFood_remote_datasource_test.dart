@@ -1,12 +1,11 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
-import 'package:food_api_test_app/core/error/exceptions.dart';
 import 'package:food_api_test_app/features/product_manager/data/datasources/openFood_remote_datasource.dart';
 import 'package:food_api_test_app/features/product_manager/data/models/open_food_item_model.dart';
-import 'package:food_api_test_app/features/product_manager/domain/entities/open_food_item.dart';
+import 'package:food_api_test_app/core/error/exceptions.dart';
+
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:matcher/matcher.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
