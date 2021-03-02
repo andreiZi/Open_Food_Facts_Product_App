@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:food_api_test_app/core/error/failures.dart';
 import 'package:food_api_test_app/core/util/input_converter.dart';
 import 'package:food_api_test_app/features/product_manager/domain/entities/open_food_item.dart';
 import 'package:food_api_test_app/features/product_manager/domain/usecases/get_product.dart';
@@ -60,7 +61,7 @@ void main() {
       //assert later
       final expected = [
         Empty(),
-        Error(message: INVALID_INPUT_MESSAGE),
+        Error(message: INVALID_INPUT_FAILURE_MESSAGE),
       ];
       //act
       bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
@@ -71,7 +72,7 @@ void main() {
       setUpMockInputConverterSuccess();
       when(mockGetOpenItem(any)).thenAnswer((_) async => Right(tOpenFoodItem));
       //act
-      bloc.add(GetOpenFoodItemForBrcode(tBarcodeString));
+      bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
       await untilCalled(mockGetOpenItem(any));
       //assert
       verify(mockGetOpenItem(Params(barCode: tBarcodeNumber)));
@@ -90,6 +91,39 @@ void main() {
       ];
       expectLater(bloc, emitsInOrder(expected));
       //act
+      bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
+    });
+
+    test('should emit [Loading, Error] when getting data fails', () async {
+      //arrange
+      setUpMockInputConverterSuccess();
+      when(mockGetOpenItem(any)).thenAnswer((_) async => Left(ServerFailure()));
+      //assert later
+      final expected = [
+        Empty(),
+        Loading(),
+        Error(message: SERVER_FAILURE_MESSAGE)
+      ];
+      expectLater(bloc, emitsInOrder(expected));
+      //act
+      bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
+    });
+
+    test(
+        'should emit [Loading, Error] with a proper message for the error when getting data fails',
+        () async {
+      //arrange
+      setUpMockInputConverterSuccess();
+      when(mockGetOpenItem(any)).thenAnswer((_) async => Left(CacheFailure()));
+      //assert later
+      final expected = [
+        Empty(),
+        Loading(),
+        Error(message: CACHE_FAILURE_MESSAGE)
+      ];
+      expectLater(bloc, emitsInOrder(expected));
+      //act
+      bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
     });
   });
 }
