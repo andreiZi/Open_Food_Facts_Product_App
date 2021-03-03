@@ -4,36 +4,31 @@ import '../../domain/entities/open_food_item.dart';
 import 'dart:convert';
 
 class OpenFoodItemModel extends OpenFoodItem {
-  OpenFoodItemModel(
-      {@required int status,
-      @required String statusVerbose,
-      @required int barCode,
-      @required String productName,
-      @required List<String> storesTags})
-      : super(
+  OpenFoodItemModel({
+    @required int status,
+    @required String statusVerbose,
+    @required int barCode,
+    @required String productName,
+    @required List<String> storesTags,
+    @required Product product,
+  }) : super(
             status: status,
             statusVerbose: statusVerbose,
             barCode: barCode,
             productName: productName,
             storesTags: storesTags);
 
-  factory OpenFoodItemModel.fromJson(String jsonString) {
-    Payload payloadFromJson(String strr) => Payload.fromJson(json.decode(strr));
-    final payload = payloadFromJson(jsonString);
-    print(payload);
-    print(payload.status);
-    print(payload.statusVerbose);
-    print(payload.barCode);
-    print(payload.product);
-    print(payload.product.productName);
-    print(payload.product.storesTags);
+  factory OpenFoodItemModel.fromJson(Map<String, dynamic> json) {
+    //Payload payloadFromJson(String strr) => Payload.fromJson(json.decode(strr));
 
     return OpenFoodItemModel(
-        status: payload.status,
-        statusVerbose: payload.statusVerbose,
-        barCode: payload.barCode,
-        productName: payload.product.productName,
-        storesTags: payload.product.storesTags);
+      status: json["status"] == null ? null : json["status"],
+      statusVerbose:
+          json["status_verbose"] == null ? null : json["status_verbose"],
+      barCode: json["code"] is String ? int.parse(json["code"]) : json["code"],
+      product:
+          json["product"] == null ? null : Product.fromJson(json["product"]),
+    );
   }
   // (json['code'] as num).toInt());
   Map<String, dynamic> toJson() {
@@ -44,4 +39,26 @@ class OpenFoodItemModel extends OpenFoodItem {
       'product': {'product_name': productName, 'stores_tags': storesTags},
     };
   }
+}
+
+class Product {
+  String productName;
+  List<String> storesTags;
+
+  Product({
+    this.productName,
+    this.storesTags,
+  });
+
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
+        productName: json["product_name"] == null ? null : json["product_name"],
+        storesTags: json["stores_tags"] == null
+            ? null
+            : List<String>.from(json['stores_tags']),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "product_name": productName == null ? null : productName,
+        "stores_tags": storesTags == null ? null : storesTags,
+      };
 }

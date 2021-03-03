@@ -19,11 +19,11 @@ class OpenFoodItem extends Equatable {
       : super([status, statusVerbose, barCode, productName, storesTags]);
 }
 
-class ProductInformation extends Equatable {
+class Product extends Equatable {
   final List<String> storesTags;
   final String productName;
 
-  ProductInformation({@required this.storesTags, @required this.productName})
+  Product({@required this.storesTags, @required this.productName})
       : super([storesTags, productName]);
 }
 

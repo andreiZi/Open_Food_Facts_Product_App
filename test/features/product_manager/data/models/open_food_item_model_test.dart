@@ -22,12 +22,12 @@ main() {
     test('should return a valid model when the Json is a valid integer ',
         () async {
       //arrange
-      // final Map<String, dynamic> jsonMap =
-      //     json.decode(fixture('product_barcode_number.json'));
-      final jsonString = fixture('product_barcode_number.json');
+      final Map<String, dynamic> jsonMap =
+          json.decode(fixture('product_barcode_number.json'));
+      //final jsonString = fixture('product_barcode_number.json');
 
       //act
-      final result = OpenFoodItemModel.fromJson(jsonString);
+      final result = OpenFoodItemModel.fromJson(jsonMap);
       //assert
       expect(result, tOpenFoodItemModel);
     });
@@ -35,9 +35,11 @@ main() {
     test('should return a valid model when the Json is regarded as a string',
         () async {
       //arrange
-      final jsonString = fixture('product_barcode_string.json');
+      final Map<String, dynamic> jsonMap =
+          json.decode(fixture('product_barcode_number.json'));
+      //final jsonString = fixture('product_barcode_string.json');
       //act
-      final result = OpenFoodItemModel.fromJson(jsonString);
+      final result = OpenFoodItemModel.fromJson(jsonMap);
       //assert
       expect(result, tOpenFoodItemModel);
     });
