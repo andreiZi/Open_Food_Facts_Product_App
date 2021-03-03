@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 //TODO: Define important product data https://world.openfoodfacts.org/api/v0/product/20035594.json
 
@@ -6,29 +7,30 @@ class OpenFoodItem extends Equatable {
   final int status;
   final String statusVerbose;
   final int barCode;
+  final List<String> storesTags;
+  final String productName;
 
   OpenFoodItem(
       {@required this.status,
       @required this.statusVerbose,
-      @required this.barCode})
-      : super([status, statusVerbose, barCode]);
+      @required this.barCode,
+      @required this.productName,
+      @required this.storesTags})
+      : super([status, statusVerbose, barCode, productName, storesTags]);
 }
 
-class Product {
-  final List<String> stores_tags;
-  final List<String> last_image_dates_tags;
-  final String labels;
+class ProductInformation extends Equatable {
+  final List<String> storesTags;
+  final String productName;
 
-  Product(
-      {@required this.stores_tags,
-      @required this.last_image_dates_tags,
-      @required this.labels});
+  ProductInformation({@required this.storesTags, @required this.productName})
+      : super([storesTags, productName]);
 }
 
-class Images {
-  final String image_front_thumb_url;
+class ProductImages extends Equatable {
+  final String image_front_url;
 
-  Images({@required this.image_front_thumb_url});
+  ProductImages({@required this.image_front_url}) : super([image_front_url]);
 }
 
 class Ingredients {

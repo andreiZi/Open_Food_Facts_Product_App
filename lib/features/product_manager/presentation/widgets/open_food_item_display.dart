@@ -14,7 +14,7 @@ class OpenFoodItemTitleDisplay extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            openFoodItem.statusVerbose,
+            openFoodItem.productName,
             style: TextStyle(fontSize: 25),
             textAlign: TextAlign.center,
           ),

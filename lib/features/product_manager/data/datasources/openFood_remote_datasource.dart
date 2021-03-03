@@ -38,7 +38,7 @@ class OpenFoodFactsRemoteDataSourceImpl extends OpenFoodFactsRemoteDataSource {
 
     if (response.statusCode == 200) {
       print(response.body);
-      return OpenFoodItemModel.fromJson(json.decode(response.body));
+      return OpenFoodItemModel.fromJson(response.body);
     } else {
       throw ServerException();
     }

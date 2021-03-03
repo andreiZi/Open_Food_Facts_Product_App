@@ -1,5 +1,9 @@
 {
   "status": 1,
   "status_verbose": "product found",
-  "code": "20035594"
+  "code": "20035594",
+  "product": {
+    "product_name": "Test Product",
+    "stores_tags": ["Wallmart", "Lidl", "Aldi"]
+  }
 }

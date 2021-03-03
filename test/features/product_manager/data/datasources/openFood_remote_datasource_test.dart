@@ -34,8 +34,8 @@ void main() {
 
   group('getOpenFoodItem', () {
     final tBarcode = 20035594;
-    final tOpenFoodItemModel = OpenFoodItemModel.fromJson(
-        json.decode(fixture('product_barcode_number.json')));
+    final tOpenFoodItemModel =
+        OpenFoodItemModel.fromJson(fixture('product_barcode_number.json'));
 
     test('''should perfom a get GET request on a URL with 
               number being the endpoint and with application/json header''',
