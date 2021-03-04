@@ -6,12 +6,13 @@ import 'package:food_api_test_app/features/product_manager/domain/entities/open_
 import '../../../../fixtures/fixture_reader.dart';
 
 main() {
+  final tProduct = Product(
+      productName: 'Test Product', storesTags: ["Wallmart", "Lidl", "Aldi"]);
   final tOpenFoodItemModel = OpenFoodItemModel(
       barCode: 20035594,
       status: 1,
       statusVerbose: 'product found',
-      productName: 'Test Product',
-      storesTags: ['Wallmart', 'Lidl', 'Aldi']);
+      product: tProduct);
 
   test('should be a sublass of the ProducManager entitity', () async {
     //assert

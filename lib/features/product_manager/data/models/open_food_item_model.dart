@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:food_api_test_app/features/product_manager/data/models/payload_from_json.dart';
 import '../../domain/entities/open_food_item.dart';
 import 'dart:convert';
 
@@ -8,15 +7,13 @@ class OpenFoodItemModel extends OpenFoodItem {
     @required int status,
     @required String statusVerbose,
     @required int barCode,
-    @required String productName,
-    @required List<String> storesTags,
     @required Product product,
   }) : super(
-            status: status,
-            statusVerbose: statusVerbose,
-            barCode: barCode,
-            productName: productName,
-            storesTags: storesTags);
+          status: status,
+          statusVerbose: statusVerbose,
+          barCode: barCode,
+          product: product,
+        );
 
   factory OpenFoodItemModel.fromJson(Map<String, dynamic> json) {
     //Payload payloadFromJson(String strr) => Payload.fromJson(json.decode(strr));
@@ -36,29 +33,10 @@ class OpenFoodItemModel extends OpenFoodItem {
       'status': status,
       'status_verbose': statusVerbose,
       'code': barCode,
-      'product': {'product_name': productName, 'stores_tags': storesTags},
+      'product': {
+        'product_name': product.productName,
+        'stores_tags': product.storesTags
+      },
     };
   }
-}
-
-class Product {
-  String productName;
-  List<String> storesTags;
-
-  Product({
-    this.productName,
-    this.storesTags,
-  });
-
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
-        productName: json["product_name"] == null ? null : json["product_name"],
-        storesTags: json["stores_tags"] == null
-            ? null
-            : List<String>.from(json['stores_tags']),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "product_name": productName == null ? null : productName,
-        "stores_tags": storesTags == null ? null : storesTags,
-      };
 }
