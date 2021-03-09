@@ -1,41 +1,42 @@
-import 'package:flutter/cupertino.dart';
+import 'package:food_api_test_app/features/product_manager/data/models/open_food_item_details_model.dart';
+import 'package:food_api_test_app/features/product_manager/domain/entities/open_food_item_details.dart';
+
 import '../../domain/entities/open_food_item.dart';
-import 'dart:convert';
+import 'package:meta/meta.dart';
 
 class OpenFoodItemModel extends OpenFoodItem {
   OpenFoodItemModel({
     @required int status,
     @required String statusVerbose,
     @required int barCode,
-    @required Product product,
+    @required OpenFoodItemDetailsModel productDetails,
   }) : super(
           status: status,
           statusVerbose: statusVerbose,
           barCode: barCode,
-          product: product,
+          productDetails: productDetails,
         );
 
   factory OpenFoodItemModel.fromJson(Map<String, dynamic> json) {
-    //Payload payloadFromJson(String strr) => Payload.fromJson(json.decode(strr));
-
     return OpenFoodItemModel(
       status: json["status"] == null ? null : json["status"],
       statusVerbose:
           json["status_verbose"] == null ? null : json["status_verbose"],
       barCode: json["code"] is String ? int.parse(json["code"]) : json["code"],
-      product:
-          json["product"] == null ? null : Product.fromJson(json["product"]),
+      productDetails: json["product"] == null
+          ? null
+          : OpenFoodItemDetailsModel.fromJson(json["product"]),
     );
   }
-  // (json['code'] as num).toInt());
+
   Map<String, dynamic> toJson() {
     return {
       'status': status,
       'status_verbose': statusVerbose,
       'code': barCode,
       'product': {
-        'product_name': product.productName,
-        'stores_tags': product.storesTags
+        'product_name': productDetails.productName,
+        'stores_tags': productDetails.storesTags
       },
     };
   }

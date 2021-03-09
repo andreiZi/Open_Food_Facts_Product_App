@@ -25,10 +25,10 @@ class OpenFoodFactsRepositoryImpl implements OpenFoodFactsRepository {
         return (Right(remoteOpenFoodItem));
       } on ServerException {
         return Left(ServerFailure());
+      } on ProductNotFoundException {
+        return Left(ProductNotFoundFailure());
       }
     }
-    // TODO: implement getProduct
-    throw UnimplementedError();
   }
 
   @override

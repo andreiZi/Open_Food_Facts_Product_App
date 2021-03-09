@@ -126,5 +126,23 @@ void main() {
       //act
       bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
     });
+
+    test(
+        'should emit [Loading, Error] with a proper message for the error when the product is not found ',
+        () async {
+      //arrange
+      setUpMockInputConverterSuccess();
+      when(mockGetOpenItem(any))
+          .thenAnswer((_) async => Left(ProductNotFoundFailure()));
+      //assert later
+      final expected = [
+        Empty(),
+        Loading(),
+        Error(message: PRODUCT_NOT_FOUND_FAILURE_MESSAGE)
+      ];
+      expectLater(bloc, emitsInOrder(expected));
+      //act
+      bloc.add(GetOpenFoodItemForBarcode(tBarcodeString));
+    });
   });
 }
