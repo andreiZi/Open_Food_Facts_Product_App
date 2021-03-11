@@ -50,24 +50,20 @@ class IngredientsImage extends Equatable {
 }
 
 class SmallPicture extends Equatable {
-  final PictureCountry pictureCountry;
-
-  SmallPicture({@required this.pictureCountry}) : super([pictureCountry]);
-}
-
-class DisplayPicture extends Equatable {
-  final PictureCountry pictureCountry;
-  DisplayPicture({@required this.pictureCountry}) : super([pictureCountry]);
-}
-
-class ThumbPicture extends Equatable {
-  final PictureCountry pictureCountry;
-  ThumbPicture({@required this.pictureCountry}) : super([pictureCountry]);
-}
-
-class PictureCountry extends Equatable {
   final String de;
   final String fr;
 
-  PictureCountry({@required this.de, @required this.fr}) : super([de, fr]);
+  SmallPicture({@required this.de, @required this.fr}) : super([de, fr]);
+}
+
+class DisplayPicture extends Equatable {
+  final String de;
+  final String fr;
+  DisplayPicture({@required this.de, @required this.fr}) : super([de, fr]);
+}
+
+class ThumbPicture extends Equatable {
+  final String de;
+  final String fr;
+  ThumbPicture({@required this.de, @required this.fr}) : super([de, fr]);
 }
