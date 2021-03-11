@@ -14,7 +14,8 @@ abstract class OpenFoodFactsRemoteDataSource {
 
   ///Calls the https://world.openfoodfacts.org/api/v0/product/{barCode} endpoint
   ///
-  /// Throws a [ServerException] for all error codes
+  /// Throws a [ProductNotExistingException] when the Status of recieved OpenFoodItem is 0
+  /// Throws a [ServerException] for all other error codes
   Future<OpenFoodItemModel> setOpenFoodItem(OpenFoodItem openFoodItem);
 }
 
@@ -37,8 +38,14 @@ class OpenFoodFactsRemoteDataSourceImpl extends OpenFoodFactsRemoteDataSource {
         await client.get(url, headers: {'Content-Type': 'application/json'});
 
     if (response.statusCode == 200) {
+      final recievedOpenFoodItem =
+          OpenFoodItemModel.fromJson(json.decode(response.body));
       print(response.body);
-      return OpenFoodItemModel.fromJson(json.decode(response.body));
+      if (recievedOpenFoodItem.status == 0) {
+        throw ProductNotFoundException();
+      } else {
+        return recievedOpenFoodItem;
+      }
     } else {
       throw ServerException();
     }

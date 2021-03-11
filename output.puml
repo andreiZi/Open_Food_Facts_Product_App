@@ -1,0 +1,274 @@
+@startuml
+set namespaceSeparator ::
+
+class "food_api_test_app::core::error::exceptions.dart::ServerException" {
+}
+
+"dart::core::Exception" <|-- "food_api_test_app::core::error::exceptions.dart::ServerException"
+
+class "food_api_test_app::core::error::exceptions.dart::CacheException" {
+}
+
+"dart::core::Exception" <|-- "food_api_test_app::core::error::exceptions.dart::CacheException"
+
+abstract class "food_api_test_app::core::error::failures.dart::Failure" {
+}
+
+"equatable::src::equatable.dart::Equatable" <|-- "food_api_test_app::core::error::failures.dart::Failure"
+
+class "food_api_test_app::core::error::failures.dart::ServerFailure" {
+}
+
+"food_api_test_app::core::error::failures.dart::Failure" <|-- "food_api_test_app::core::error::failures.dart::ServerFailure"
+
+class "food_api_test_app::core::error::failures.dart::CacheFailure" {
+}
+
+"food_api_test_app::core::error::failures.dart::Failure" <|-- "food_api_test_app::core::error::failures.dart::CacheFailure"
+
+abstract class "food_api_test_app::core::network::network_info.dart::NetworkInfo" {
+  +Future<bool> isConnected
+}
+
+class "food_api_test_app::core::network::network_info.dart::NetworkInfoImpl" {
+  +DataConnectionChecker connectionChecker
+  +Future<bool> isConnected
+}
+
+"food_api_test_app::core::network::network_info.dart::NetworkInfoImpl" o-- "data_connection_checker::data_connection_checker.dart::DataConnectionChecker"
+"food_api_test_app::core::network::network_info.dart::NetworkInfo" <|-- "food_api_test_app::core::network::network_info.dart::NetworkInfoImpl"
+
+abstract class "food_api_test_app::core::usecases::usecase.dart::UseCase<Type, Params>" {
+  +Future call()
+}
+
+class "food_api_test_app::core::usecases::usecase.dart::NoParams" {
+}
+
+"equatable::src::equatable.dart::Equatable" <|-- "food_api_test_app::core::usecases::usecase.dart::NoParams"
+
+class "food_api_test_app::core::util::input_converter.dart::InputConverter" {
+  +Either stringToUnsignedInteger()
+}
+
+class "food_api_test_app::core::util::input_converter.dart::InvalidInputfailure" {
+}
+
+"food_api_test_app::core::error::failures.dart::Failure" <|-- "food_api_test_app::core::util::input_converter.dart::InvalidInputfailure"
+
+abstract class "food_api_test_app::features::product_manager::data::datasources::openFood_remote_datasource.dart::OpenFoodFactsRemoteDataSource" {
+  +Future getOpenFoodItem()
+  +Future setOpenFoodItem()
+}
+
+class "food_api_test_app::features::product_manager::data::datasources::openFood_remote_datasource.dart::OpenFoodFactsRemoteDataSourceImpl" {
+  +Client client
+  +Future getOpenFoodItem()
+  +Future setOpenFoodItem()
+  -Future _getOpenFoodItemFromUrl()
+}
+
+"food_api_test_app::features::product_manager::data::datasources::openFood_remote_datasource.dart::OpenFoodFactsRemoteDataSourceImpl" o-- "http::src::client.dart::Client"
+"food_api_test_app::features::product_manager::data::datasources::openFood_remote_datasource.dart::OpenFoodFactsRemoteDataSource" <|-- "food_api_test_app::features::product_manager::data::datasources::openFood_remote_datasource.dart::OpenFoodFactsRemoteDataSourceImpl"
+
+class "food_api_test_app::features::product_manager::data::models::open_food_item_model.dart::OpenFoodItemModel" {
+  +Map toJson()
+}
+
+"food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::OpenFoodItem" <|-- "food_api_test_app::features::product_manager::data::models::open_food_item_model.dart::OpenFoodItemModel"
+
+class "food_api_test_app::features::product_manager::data::repositories::OpenFood_repository_impl.dart::OpenFoodFactsRepositoryImpl" {
+  +OpenFoodFactsRemoteDataSource remoteDataSource
+  +NetworkInfo networkinfo
+  +Future getOpenFoodItem()
+  +Future setProduct()
+}
+
+"food_api_test_app::features::product_manager::data::repositories::OpenFood_repository_impl.dart::OpenFoodFactsRepositoryImpl" o-- "food_api_test_app::features::product_manager::data::datasources::openFood_remote_datasource.dart::OpenFoodFactsRemoteDataSource"
+"food_api_test_app::features::product_manager::data::repositories::OpenFood_repository_impl.dart::OpenFoodFactsRepositoryImpl" o-- "food_api_test_app::core::network::network_info.dart::NetworkInfo"
+"food_api_test_app::features::product_manager::domain::repositories::OpenFood_repository.dart::OpenFoodFactsRepository" <|-- "food_api_test_app::features::product_manager::data::repositories::OpenFood_repository_impl.dart::OpenFoodFactsRepositoryImpl"
+
+class "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::OpenFoodItem" {
+  +int status
+  +String statusVerbose
+  +int barCode
+}
+
+"equatable::src::equatable.dart::Equatable" <|-- "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::OpenFoodItem"
+
+class "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::Product" {
+  +List<String> stores_tags
+  +List<String> last_image_dates_tags
+  +String labels
+}
+
+class "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::Images" {
+  +String image_front_thumb_url
+}
+
+class "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::Ingredients" {
+  +String ingredients_text
+  +String ingredients_text_with_allergens
+  +String ingredients_text_de
+  +String ingredients_text_with_allergens_de
+}
+
+class "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::Nutriments100Gramm" {
+  +int energy_kcal_100g
+  +int energy_100g
+  +int fat_100g
+  +int saturated_fat_100g
+  +int carbohydrates_100g
+  +int sugars_100g
+  +int proteins_100g
+  +int salt_100g
+  +int nutrition_score_fr_100g
+  +int sodium_100g
+  +int nova_group_100g
+  +int fiber_100g
+}
+
+abstract class "food_api_test_app::features::product_manager::domain::repositories::OpenFood_repository.dart::OpenFoodFactsRepository" {
+  +Future getOpenFoodItem()
+  +Future setProduct()
+}
+
+class "food_api_test_app::features::product_manager::domain::usecases::get_product.dart::GetOpenFoodItem" {
+  +OpenFoodFactsRepository repository
+  +Future call()
+}
+
+"food_api_test_app::features::product_manager::domain::usecases::get_product.dart::GetOpenFoodItem" o-- "food_api_test_app::features::product_manager::domain::repositories::OpenFood_repository.dart::OpenFoodFactsRepository"
+"food_api_test_app::core::usecases::usecase.dart::UseCase<Type, Params>" <|-- "food_api_test_app::features::product_manager::domain::usecases::get_product.dart::GetOpenFoodItem"
+
+class "food_api_test_app::features::product_manager::domain::usecases::get_product.dart::Params" {
+  +int barCode
+}
+
+"equatable::src::equatable.dart::Equatable" <|-- "food_api_test_app::features::product_manager::domain::usecases::get_product.dart::Params"
+
+class "food_api_test_app::features::product_manager::domain::usecases::set_product.dart::SetOpenFoodItem" {
+  +OpenFoodFactsRepository repository
+  +Future call()
+}
+
+"food_api_test_app::features::product_manager::domain::usecases::set_product.dart::SetOpenFoodItem" o-- "food_api_test_app::features::product_manager::domain::repositories::OpenFood_repository.dart::OpenFoodFactsRepository"
+"food_api_test_app::core::usecases::usecase.dart::UseCase<Type, Params>" <|-- "food_api_test_app::features::product_manager::domain::usecases::set_product.dart::SetOpenFoodItem"
+
+class "food_api_test_app::features::product_manager::domain::usecases::set_product.dart::Params" {
+  +OpenFoodItem openFoodItem
+}
+
+"food_api_test_app::features::product_manager::domain::usecases::set_product.dart::Params" o-- "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::OpenFoodItem"
+"equatable::src::equatable.dart::Equatable" <|-- "food_api_test_app::features::product_manager::domain::usecases::set_product.dart::Params"
+
+class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerBloc" {
+  +GetOpenFoodItem getOpenFoodItem
+  +InputConverter inputConverter
+  +ProductManagerState initialState
+  +Stream mapEventToState()
+  -Stream _eitherLoadedOrErrorState()
+  -dynamic _mapFailureToMessage()
+}
+
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerBloc" o-- "food_api_test_app::features::product_manager::domain::usecases::get_product.dart::GetOpenFoodItem"
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerBloc" o-- "food_api_test_app::core::util::input_converter.dart::InputConverter"
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerBloc" o-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerState"
+"bloc::src::bloc.dart::Bloc<Event, State>" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerBloc"
+
+abstract class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerEvent" {
+  +List<Object> props
+}
+
+"equatable::src::equatable.dart::Equatable" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerEvent"
+
+class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::GetOpenFoodItemForBarcode" {
+  +dynamic barcodeString
+  +List<Object> props
+}
+
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerEvent" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::GetOpenFoodItemForBarcode"
+
+abstract class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerState" {
+  +List<Object> props
+}
+
+"equatable::src::equatable.dart::Equatable" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerState"
+
+class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Empty" {
+}
+
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerState" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Empty"
+
+class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Loading" {
+}
+
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerState" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Loading"
+
+class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Loaded" {
+  +OpenFoodItem openFoodItem
+  +List<Object> props
+}
+
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Loaded" o-- "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::OpenFoodItem"
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerState" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Loaded"
+
+class "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Error" {
+  +dynamic message
+  +List<Object> props
+}
+
+"food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::ProductManagerState" <|-- "food_api_test_app::features::product_manager::presentation::bloc::product_manager_bloc.dart::Error"
+
+class "food_api_test_app::features::product_manager::presentation::pages::product_manager_page.dart::ProductManagerPage" {
+  +Widget build()
+  +BlocProvider buildBody()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "food_api_test_app::features::product_manager::presentation::pages::product_manager_page.dart::ProductManagerPage"
+
+class "food_api_test_app::features::product_manager::presentation::widgets::loading_widget.dart::LoadingWidget" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "food_api_test_app::features::product_manager::presentation::widgets::loading_widget.dart::LoadingWidget"
+
+class "food_api_test_app::features::product_manager::presentation::widgets::message_display.dart::MessageDisplay" {
+  +dynamic message
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "food_api_test_app::features::product_manager::presentation::widgets::message_display.dart::MessageDisplay"
+
+class "food_api_test_app::features::product_manager::presentation::widgets::open_food_item_controls.dart::OpenFoodItemControls" {
+  +State createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "food_api_test_app::features::product_manager::presentation::widgets::open_food_item_controls.dart::OpenFoodItemControls"
+
+class "food_api_test_app::features::product_manager::presentation::widgets::open_food_item_controls.dart::_OpenFoodItemControlsState" {
+  +TextEditingController controller
+  +dynamic inputStr
+  +Widget build()
+  +void dispatchBarcode()
+}
+
+"food_api_test_app::features::product_manager::presentation::widgets::open_food_item_controls.dart::_OpenFoodItemControlsState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State<T>" <|-- "food_api_test_app::features::product_manager::presentation::widgets::open_food_item_controls.dart::_OpenFoodItemControlsState"
+
+class "food_api_test_app::features::product_manager::presentation::widgets::open_food_item_display.dart::OpenFoodItemTitleDisplay" {
+  +OpenFoodItem openFoodItem
+  +Widget build()
+}
+
+"food_api_test_app::features::product_manager::presentation::widgets::open_food_item_display.dart::OpenFoodItemTitleDisplay" o-- "food_api_test_app::features::product_manager::domain::entities::open_food_item.dart::OpenFoodItem"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "food_api_test_app::features::product_manager::presentation::widgets::open_food_item_display.dart::OpenFoodItemTitleDisplay"
+
+class "food_api_test_app::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "food_api_test_app::main.dart::MyApp"
+
+
+@enduml

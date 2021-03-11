@@ -16,6 +16,7 @@ const String SERVER_FAILURE_MESSAGE = 'Server Failure';
 const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 const String INVALID_INPUT_FAILURE_MESSAGE =
     'Invalid Input - The number must be a positive integer or zero.';
+const String PRODUCT_NOT_FOUND_FAILURE_MESSAGE = "Product not found<";
 
 class ProductManagerBloc
     extends Bloc<ProductManagerEvent, ProductManagerState> {
@@ -66,6 +67,8 @@ class ProductManagerBloc
         return SERVER_FAILURE_MESSAGE;
       case CacheFailure:
         return CACHE_FAILURE_MESSAGE;
+      case ProductNotFoundFailure:
+        return PRODUCT_NOT_FOUND_FAILURE_MESSAGE;
       default:
         return 'Unexpected Error';
     }

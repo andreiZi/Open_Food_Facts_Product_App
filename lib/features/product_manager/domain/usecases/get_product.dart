@@ -13,7 +13,7 @@ class GetOpenFoodItem extends UseCase<OpenFoodItem, Params> {
 
   @override
   Future<Either<Failure, OpenFoodItem>> call(Params params) async {
-    return await repository.getProduct(params.barCode);
+    return await repository.getOpenFoodItem(params.barCode);
   }
 }
 

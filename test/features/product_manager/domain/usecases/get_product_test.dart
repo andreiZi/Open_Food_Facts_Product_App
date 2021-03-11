@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:food_api_test_app/features/product_manager/domain/entities/open_food_item.dart';
 import 'package:food_api_test_app/features/product_manager/domain/repositories/OpenFood_repository.dart';
@@ -26,13 +25,13 @@ void main() {
       'should get an Open Food Item (Product) for the barCode from the repository',
       () async {
     //arrange
-    when(mockOpenFoodFactsRepository.getProduct(any))
+    when(mockOpenFoodFactsRepository.getOpenFoodItem(any))
         .thenAnswer((_) async => Right(topenFoodItem));
     //act
     final result = await usecase(Params(barCode: tbarCode));
     //assert
     expect(result, Right(topenFoodItem));
-    verify(mockOpenFoodFactsRepository.getProduct(tbarCode));
+    verify(mockOpenFoodFactsRepository.getOpenFoodItem(tbarCode));
     verifyNoMoreInteractions(mockOpenFoodFactsRepository);
   });
 }
