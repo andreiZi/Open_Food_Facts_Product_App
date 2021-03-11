@@ -4,7 +4,7 @@ import 'package:food_api_test_app/features/product_manager/presentation/bloc/blo
 import 'package:food_api_test_app/features/product_manager/presentation/widgets/loading_widget.dart';
 import 'package:food_api_test_app/features/product_manager/presentation/widgets/message_display.dart';
 import 'package:food_api_test_app/features/product_manager/presentation/widgets/open_food_item_controls.dart';
-import 'package:food_api_test_app/features/product_manager/presentation/widgets/open_food_item_display.dart';
+import 'package:food_api_test_app/features/product_manager/presentation/widgets/open_food_item_title_display.dart';
 
 import '../../../../injection_container.dart';
 
