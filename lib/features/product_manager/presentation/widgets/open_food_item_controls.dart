@@ -43,6 +43,17 @@ class _OpenFoodItemControlsState extends State<OpenFoodItemControls> {
               textTheme: ButtonTextTheme.primary,
               onPressed: dispatchBarcode,
             ),
+          ),
+          SizedBox(
+            width: 15,
+          ),
+          Expanded(
+            child: RaisedButton(
+              child: Text('Save Product'),
+              color: Theme.of(context).accentColor,
+              textTheme: ButtonTextTheme.primary,
+              onPressed: dispatchSaveProduct,
+            ),
           )
         ],
       )
@@ -54,4 +65,6 @@ class _OpenFoodItemControlsState extends State<OpenFoodItemControls> {
     BlocProvider.of<ProductManagerBloc>(context)
         .add(GetOpenFoodItemForBarcode(inputStr));
   }
+
+  void dispatchSaveProduct() {}
 }

@@ -18,6 +18,7 @@ class ProductManagerPage extends StatelessWidget {
         title: Text('Food Api Test App'),
       ),
       body: buildBody(context),
+      backgroundColor: Theme.of(context).backgroundColor,
     );
   }
 
@@ -32,9 +33,15 @@ class ProductManagerPage extends StatelessWidget {
               SizedBox(height: 10),
               Card(
                 child: BlocBuilder<ProductManagerBloc, ProductManagerState>(
+                  // ignore: missing_return
                   builder: (context, state) {
                     if (state is Empty) {
-                      return MessageDisplay(message: 'Search with a Barcode');
+                      return Container(
+                        child: Center(
+                          child: Text('Start Searching'),
+                        ),
+                        height: MediaQuery.of(context).size.height / 3,
+                      );
                     } else if (state is Loading) {
                       return LoadingWidget();
                     } else if (state is Loaded) {

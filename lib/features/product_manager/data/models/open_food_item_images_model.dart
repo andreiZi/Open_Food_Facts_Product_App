@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:meta/meta.dart';
 import 'package:food_api_test_app/features/product_manager/domain/entities/open_food_item_images.dart';
 
@@ -34,7 +36,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.frontImage.smallPicture.de,
           'fr': images.frontImage.smallPicture.fr == null
               ? null
-              : images.frontImage.smallPicture.fr
+              : images.frontImage.smallPicture.fr,
+          'en': images.frontImage.smallPicture.en == null
+              ? null
+              : images.frontImage.smallPicture.en
         },
         'thumb': {
           'de': images.frontImage.thumbPicture.de == null
@@ -42,7 +47,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.frontImage.thumbPicture.de,
           'fr': images.frontImage.thumbPicture.fr == null
               ? null
-              : images.frontImage.thumbPicture.fr
+              : images.frontImage.thumbPicture.fr,
+          'en': images.frontImage.thumbPicture.en == null
+              ? null
+              : images.frontImage.thumbPicture.en
         },
         'display': {
           'de': images.frontImage.displayPicture.de == null
@@ -50,7 +58,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.frontImage.displayPicture.de,
           'fr': images.frontImage.displayPicture.fr == null
               ? null
-              : images.frontImage.displayPicture.fr
+              : images.frontImage.displayPicture.fr,
+          'en': images.frontImage.displayPicture.en == null
+              ? null
+              : images.frontImage.displayPicture.en
         }
       },
       'nutrition': {
@@ -60,7 +71,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.nutritionImage.smallPicture.de,
           'fr': images.nutritionImage.smallPicture.fr == null
               ? null
-              : images.nutritionImage.smallPicture.fr
+              : images.nutritionImage.smallPicture.fr,
+          'en': images.nutritionImage.smallPicture.en == null
+              ? null
+              : images.nutritionImage.smallPicture.en
         },
         'thumb': {
           'de': images.nutritionImage.thumbPicture.de == null
@@ -68,7 +82,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.nutritionImage.thumbPicture.de,
           'fr': images.nutritionImage.thumbPicture.fr == null
               ? null
-              : images.nutritionImage.thumbPicture.fr
+              : images.nutritionImage.thumbPicture.fr,
+          'en': images.nutritionImage.thumbPicture.en == null
+              ? null
+              : images.nutritionImage.thumbPicture.en
         },
         'display': {
           'de': images.nutritionImage.displayPicture.de == null
@@ -76,7 +93,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.nutritionImage.displayPicture.de,
           'fr': images.nutritionImage.displayPicture.fr == null
               ? null
-              : images.nutritionImage.displayPicture.fr
+              : images.nutritionImage.displayPicture.fr,
+          'en': images.nutritionImage.displayPicture.en == null
+              ? null
+              : images.nutritionImage.displayPicture.en
         }
       },
       'ingredients': {
@@ -86,7 +106,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.ingredientsImage.smallPicture.de,
           'fr': images.ingredientsImage.smallPicture.fr == null
               ? null
-              : images.ingredientsImage.smallPicture.fr
+              : images.ingredientsImage.smallPicture.fr,
+          'en': images.ingredientsImage.smallPicture.en == null
+              ? null
+              : images.ingredientsImage.smallPicture.en
         },
         'thumb': {
           'de': images.ingredientsImage.thumbPicture.de == null
@@ -94,7 +117,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.ingredientsImage.thumbPicture.de,
           'fr': images.ingredientsImage.thumbPicture.fr == null
               ? null
-              : images.ingredientsImage.thumbPicture.fr
+              : images.ingredientsImage.thumbPicture.fr,
+          'en': images.ingredientsImage.thumbPicture.en == null
+              ? null
+              : images.ingredientsImage.thumbPicture.en
         },
         'display': {
           'de': images.ingredientsImage.displayPicture.de == null
@@ -102,7 +128,10 @@ class OpenFoodItemImagesModel extends OpenFoodItemImages {
               : images.ingredientsImage.displayPicture.de,
           'fr': images.ingredientsImage.displayPicture.fr == null
               ? null
-              : images.ingredientsImage.displayPicture.fr
+              : images.ingredientsImage.displayPicture.fr,
+          'en': images.ingredientsImage.displayPicture.en == null
+              ? null
+              : images.ingredientsImage.displayPicture.en
         }
       }
     };
@@ -136,15 +165,18 @@ class NutritionImageModell extends NutritionImage {
     return {
       'small': {
         'de': smallPicture.de == null ? null : smallPicture.de,
-        'fr': smallPicture.fr == null ? null : smallPicture.fr
+        'fr': smallPicture.fr == null ? null : smallPicture.fr,
+        'en': smallPicture.en == null ? null : smallPicture.en,
       },
       'display': {
         'de': displayPicture.de == null ? null : displayPicture.de,
-        'fr': displayPicture.fr == null ? null : displayPicture.fr
+        'fr': displayPicture.fr == null ? null : displayPicture.fr,
+        'en': displayPicture.en == null ? null : displayPicture.en,
       },
       'thumb': {
         'de': thumbPicture.de == null ? null : thumbPicture.de,
-        'fr': thumbPicture.fr == null ? null : thumbPicture.fr
+        'fr': thumbPicture.fr == null ? null : thumbPicture.fr,
+        'en': thumbPicture.en == null ? null : thumbPicture.en,
       }
     };
   }
@@ -177,15 +209,18 @@ class FrontImageModell extends FrontImage {
     return {
       'small': {
         'de': smallPicture.de == null ? null : smallPicture.de,
-        'fr': smallPicture.fr == null ? null : smallPicture.fr
+        'fr': smallPicture.fr == null ? null : smallPicture.fr,
+        'en': smallPicture.en == null ? null : smallPicture.en,
       },
       'display': {
         'de': displayPicture.de == null ? null : displayPicture.de,
-        'fr': displayPicture.fr == null ? null : displayPicture.fr
+        'fr': displayPicture.fr == null ? null : displayPicture.fr,
+        'en': displayPicture.en == null ? null : displayPicture.en,
       },
       'thumb': {
         'de': thumbPicture.de == null ? null : thumbPicture.de,
-        'fr': thumbPicture.fr == null ? null : thumbPicture.fr
+        'fr': thumbPicture.fr == null ? null : thumbPicture.fr,
+        'en': thumbPicture.en == null ? null : thumbPicture.en,
       }
     };
   }
@@ -218,55 +253,73 @@ class IngredientsImageModell extends IngredientsImage {
     return {
       'small': {
         'de': smallPicture.de == null ? null : smallPicture.de,
-        'fr': smallPicture.fr == null ? null : smallPicture.fr
+        'fr': smallPicture.fr == null ? null : smallPicture.fr,
+        'en': smallPicture.en == null ? null : smallPicture.en,
       },
       'display': {
         'de': displayPicture.de == null ? null : displayPicture.de,
-        'fr': displayPicture.fr == null ? null : displayPicture.fr
+        'fr': displayPicture.fr == null ? null : displayPicture.fr,
+        'en': displayPicture.en == null ? null : displayPicture.en,
       },
       'thumb': {
         'de': thumbPicture.de == null ? null : thumbPicture.de,
-        'fr': thumbPicture.fr == null ? null : thumbPicture.fr
+        'fr': thumbPicture.fr == null ? null : thumbPicture.fr,
+        'en': thumbPicture.en == null ? null : thumbPicture.en,
       }
     };
   }
 }
 
 class SmallPictureModell extends SmallPicture {
-  SmallPictureModell({@required String de, @required String fr})
-      : super(de: de, fr: fr);
+  SmallPictureModell(
+      {@required String de, @required String fr, @required String en})
+      : super(de: de, fr: fr, en: en);
 
   factory SmallPictureModell.fromJson(Map<String, dynamic> json) {
-    return SmallPictureModell(de: json['de'], fr: json['fr']);
+    return SmallPictureModell(de: json['de'], fr: json['fr'], en: json['en']);
   }
 
   Map<String, dynamic> toJson() {
-    return {'de': de == null ? null : de, 'fr': fr == null ? null : fr};
+    return {
+      'de': de == null ? null : de,
+      'fr': fr == null ? null : fr,
+      'en': en == null ? null : en
+    };
   }
 }
 
 class DisplayPictureModell extends DisplayPicture {
-  DisplayPictureModell({@required String de, @required String fr})
-      : super(de: de, fr: fr);
+  DisplayPictureModell(
+      {@required String de, @required String fr, @required String en})
+      : super(de: de, fr: fr, en: en);
 
   factory DisplayPictureModell.fromJson(Map<String, dynamic> json) {
-    return DisplayPictureModell(de: json['de'], fr: json['fr']);
+    return DisplayPictureModell(de: json['de'], fr: json['fr'], en: json['en']);
   }
 
   Map<String, dynamic> toJson() {
-    return {'de': de == null ? null : de, 'fr': fr == null ? null : fr};
+    return {
+      'de': de == null ? null : de,
+      'fr': fr == null ? null : fr,
+      'en': en == null ? null : en
+    };
   }
 }
 
 class ThumbPictureModell extends ThumbPicture {
-  ThumbPictureModell({@required String de, @required String fr})
-      : super(de: de, fr: fr);
+  ThumbPictureModell(
+      {@required String de, @required String fr, @required String en})
+      : super(de: de, fr: fr, en: en);
 
   factory ThumbPictureModell.fromJson(Map<String, dynamic> json) {
-    return ThumbPictureModell(de: json['de'], fr: json['fr']);
+    return ThumbPictureModell(de: json['de'], fr: json['fr'], en: json['en']);
   }
 
   Map<String, dynamic> toJson() {
-    return {'de': de == null ? null : de, 'fr': fr == null ? null : fr};
+    return {
+      'de': de == null ? null : de,
+      'fr': fr == null ? null : fr,
+      'en': en == null ? null : en
+    };
   }
 }

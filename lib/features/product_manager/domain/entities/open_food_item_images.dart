@@ -52,18 +52,26 @@ class IngredientsImage extends Equatable {
 class SmallPicture extends Equatable {
   final String de;
   final String fr;
+  final String en;
 
-  SmallPicture({@required this.de, @required this.fr}) : super([de, fr]);
+  SmallPicture({@required this.de, @required this.fr, @required this.en})
+      : super([de, fr, en]);
 }
 
 class DisplayPicture extends Equatable {
   final String de;
   final String fr;
-  DisplayPicture({@required this.de, @required this.fr}) : super([de, fr]);
+  final String en;
+
+  DisplayPicture({@required this.de, @required this.fr, @required this.en})
+      : super([de, fr, en]);
 }
 
 class ThumbPicture extends Equatable {
   final String de;
   final String fr;
-  ThumbPicture({@required this.de, @required this.fr}) : super([de, fr]);
+  final String en;
+
+  ThumbPicture({@required this.de, @required this.fr, @required this.en})
+      : super([de, fr, en]);
 }

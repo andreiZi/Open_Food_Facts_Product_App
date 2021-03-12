@@ -12,15 +12,18 @@ import '../../../../fixtures/fixture_reader.dart';
 main() {
   final tThumbPicturemodell = ThumbPictureModell(
       de: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
-      fr: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg');
+      fr: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+      en: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg');
 
   final tDisplayPictureModell = DisplayPictureModell(
       de: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
-      fr: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg');
+      fr: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+      en: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg');
 
   final tSmallPictureModell = SmallPictureModell(
       de: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
-      fr: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg');
+      fr: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+      en: 'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg');
 
   final tIngredientsImageModell = IngredientsImageModell(
       smallPictureModell: tSmallPictureModell,
@@ -104,18 +107,24 @@ main() {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 },
                 'thumb': {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 },
                 'display': {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 }
               },
@@ -124,18 +133,24 @@ main() {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 },
                 'thumb': {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 },
                 'display': {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 }
               },
@@ -144,18 +159,24 @@ main() {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 },
                 'thumb': {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 },
                 'display': {
                   'de':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                   'fr':
+                      'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                  'en':
                       'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
                 }
               }
@@ -199,18 +220,24 @@ main() {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               },
               'thumb': {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               },
               'display': {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               }
             },
@@ -219,18 +246,24 @@ main() {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               },
               'thumb': {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               },
               'display': {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               }
             },
@@ -239,18 +272,24 @@ main() {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               },
               'thumb': {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               },
               'display': {
                 'de':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
                 'fr':
+                    'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+                'en':
                     'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
               }
             }
@@ -290,18 +329,24 @@ main() {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             },
             'thumb': {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             },
             'display': {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             }
           },
@@ -310,18 +355,24 @@ main() {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             },
             'thumb': {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             },
             'display': {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             }
           },
@@ -330,18 +381,24 @@ main() {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             },
             'thumb': {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             },
             'display': {
               'de':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.100.jpg',
               'fr':
+                  'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg',
+              'en':
                   'https://static.openfoodfacts.org/images/products/20035594/ingredients_de.10.400.jpg'
             }
           }

@@ -50,7 +50,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.frontImage.smallPicture.de,
               'fr': images.frontImage.smallPicture.fr == null
                   ? null
-                  : images.frontImage.smallPicture.fr
+                  : images.frontImage.smallPicture.fr,
+              'en': images.frontImage.smallPicture.en == null
+                  ? null
+                  : images.frontImage.smallPicture.en
             },
             'thumb': {
               'de': images.frontImage.thumbPicture.de == null
@@ -58,7 +61,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.frontImage.thumbPicture.de,
               'fr': images.frontImage.thumbPicture.fr == null
                   ? null
-                  : images.frontImage.thumbPicture.fr
+                  : images.frontImage.thumbPicture.fr,
+              'en': images.frontImage.thumbPicture.en == null
+                  ? null
+                  : images.frontImage.thumbPicture.en
             },
             'display': {
               'de': images.frontImage.displayPicture.de == null
@@ -66,7 +72,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.frontImage.displayPicture.de,
               'fr': images.frontImage.displayPicture.fr == null
                   ? null
-                  : images.frontImage.displayPicture.fr
+                  : images.frontImage.displayPicture.fr,
+              'en': images.frontImage.displayPicture.en == null
+                  ? null
+                  : images.frontImage.displayPicture.en
             }
           },
           'nutrition': {
@@ -76,7 +85,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.nutritionImage.smallPicture.de,
               'fr': images.nutritionImage.smallPicture.fr == null
                   ? null
-                  : images.nutritionImage.smallPicture.fr
+                  : images.nutritionImage.smallPicture.fr,
+              'en': images.nutritionImage.smallPicture.en == null
+                  ? null
+                  : images.nutritionImage.smallPicture.en
             },
             'thumb': {
               'de': images.nutritionImage.thumbPicture.de == null
@@ -84,7 +96,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.nutritionImage.thumbPicture.de,
               'fr': images.nutritionImage.thumbPicture.fr == null
                   ? null
-                  : images.nutritionImage.thumbPicture.fr
+                  : images.nutritionImage.thumbPicture.fr,
+              'en': images.nutritionImage.thumbPicture.en == null
+                  ? null
+                  : images.nutritionImage.thumbPicture.en
             },
             'display': {
               'de': images.nutritionImage.displayPicture.de == null
@@ -92,7 +107,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.nutritionImage.displayPicture.de,
               'fr': images.nutritionImage.displayPicture.fr == null
                   ? null
-                  : images.nutritionImage.displayPicture.fr
+                  : images.nutritionImage.displayPicture.fr,
+              'en': images.nutritionImage.displayPicture.en == null
+                  ? null
+                  : images.nutritionImage.displayPicture.en
             }
           },
           'ingredients': {
@@ -102,7 +120,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.ingredientsImage.smallPicture.de,
               'fr': images.ingredientsImage.smallPicture.fr == null
                   ? null
-                  : images.ingredientsImage.smallPicture.fr
+                  : images.ingredientsImage.smallPicture.fr,
+              'en': images.ingredientsImage.smallPicture.en == null
+                  ? null
+                  : images.ingredientsImage.smallPicture.en
             },
             'thumb': {
               'de': images.ingredientsImage.thumbPicture.de == null
@@ -110,7 +131,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.ingredientsImage.thumbPicture.de,
               'fr': images.ingredientsImage.thumbPicture.fr == null
                   ? null
-                  : images.ingredientsImage.thumbPicture.fr
+                  : images.ingredientsImage.thumbPicture.fr,
+              'en': images.ingredientsImage.thumbPicture.en == null
+                  ? null
+                  : images.ingredientsImage.thumbPicture.en
             },
             'display': {
               'de': images.ingredientsImage.displayPicture.de == null
@@ -118,7 +142,10 @@ class OpenFoodItemModel extends OpenFoodItem {
                   : images.ingredientsImage.displayPicture.de,
               'fr': images.ingredientsImage.displayPicture.fr == null
                   ? null
-                  : images.ingredientsImage.displayPicture.fr
+                  : images.ingredientsImage.displayPicture.fr,
+              'en': images.ingredientsImage.displayPicture.en == null
+                  ? null
+                  : images.ingredientsImage.displayPicture.en
             }
           }
         }

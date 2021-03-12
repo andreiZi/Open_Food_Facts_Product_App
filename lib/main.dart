@@ -15,10 +15,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Food Api Test App',
       theme: ThemeData(
-        primaryColor: Colors.deepPurple.shade900,
-        accentColor: Colors.deepPurple.shade600,
-      ),
+          primaryColor: Colors.deepPurple.shade900,
+          accentColor: _getColorFromHex('#263238'),
+          backgroundColor: _getColorFromHex('#3949AB')),
       home: ProductManagerPage(),
     );
+  }
+
+  Color _getColorFromHex(String hexColor) {
+    hexColor = hexColor.replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF" + hexColor;
+    }
+    if (hexColor.length == 8) {
+      return Color(int.parse("0x$hexColor"));
+    }
   }
 }

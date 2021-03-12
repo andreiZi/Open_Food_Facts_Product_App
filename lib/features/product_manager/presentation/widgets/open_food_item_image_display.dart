@@ -15,18 +15,18 @@ class OpenFoodItemImagesDisplay extends StatelessWidget {
   }
 
   Image showImage(DisplayPicture image) {
-    if (image == null) {
-      return Image.asset('images/gifs/404-animated.gif');
-    }
+    if (image == null) return Image.asset('images/gifs/404-animated.gif');
+
     return Image.network(showImageForCountry(image));
   }
 
   String showImageForCountry(DisplayPicture image) {
     final germanImage = image.de;
     final frenchImage = image.fr;
-    if (germanImage != null) {
-      return germanImage;
-    }
-    return frenchImage;
+    final englishImage = image.en;
+
+    if (germanImage != null) return germanImage;
+    if (frenchImage != null) return frenchImage;
+    return englishImage;
   }
 }
