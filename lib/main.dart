@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Food Api Test App',
       theme: ThemeData(
-        primaryColor: Colors.green.shade800,
-        accentColor: Colors.green.shade600,
+        primaryColor: Colors.deepPurple.shade900,
+        accentColor: Colors.deepPurple.shade600,
       ),
       home: ProductManagerPage(),
     );

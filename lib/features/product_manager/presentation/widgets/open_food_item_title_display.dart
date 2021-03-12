@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:food_api_test_app/features/product_manager/domain/entities/open_food_item.dart';
 
 class OpenFoodItemTitleDisplay extends StatelessWidget {
