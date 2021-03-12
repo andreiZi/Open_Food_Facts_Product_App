@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_api_test_app/features/product_manager/presentation/bloc/bloc.dart';
+import 'package:food_api_test_app/features/product_manager/presentation/widgets/image_error_display.dart';
 import 'package:food_api_test_app/features/product_manager/presentation/widgets/loading_widget.dart';
 import 'package:food_api_test_app/features/product_manager/presentation/widgets/message_display.dart';
 import 'package:food_api_test_app/features/product_manager/presentation/widgets/open_food_item_controls.dart';
+import 'package:food_api_test_app/features/product_manager/presentation/widgets/open_food_item_image_display.dart';
 import 'package:food_api_test_app/features/product_manager/presentation/widgets/open_food_item_title_display.dart';
 
 import '../../../../injection_container.dart';
@@ -28,12 +30,23 @@ class ProductManagerPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               SizedBox(height: 10),
-
-              Container(
-                // Third of the size of the screen
-                height: MediaQuery.of(context).size.height / 3,
-                // Message Text widgets / CircularLoadingIndicator
-                child: Placeholder(),
+              Card(
+                child: BlocBuilder<ProductManagerBloc, ProductManagerState>(
+                  builder: (context, state) {
+                    if (state is Empty) {
+                      return MessageDisplay(message: 'Search with a Barcode');
+                    } else if (state is Loading) {
+                      return LoadingWidget();
+                    } else if (state is Loaded) {
+                      return OpenFoodItemImagesDisplay(
+                        openFoodItemImages:
+                            state.openFoodItem.productDetails.productImages,
+                      );
+                    } else if (state is Error) {
+                      return ImageErrorDisplay();
+                    }
+                  },
+                ),
               ),
               SizedBox(height: 15),
               //Top Half
